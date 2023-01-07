@@ -1,0 +1,7 @@
+SearchResource:
+  - "snippet"
+SearchKey: "football"
+OrderBy: "Date"
+MaxResultPerCall: 10
+ApiKey:
+  - "AIzaSyDbI8hPzS_TBCDaGD9ftCjKqA7RWRrwm5U"
