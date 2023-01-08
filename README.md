@@ -8,6 +8,7 @@ GO project consists of 3 service packages -
 
 
 Multiple api key support is implemented by combining multiple api keys together like this - "apiKey1, apiKey2"
+
 Text search is performed using to_tsvector queries, optimised via GIN index
 
 
