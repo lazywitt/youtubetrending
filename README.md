@@ -1,6 +1,6 @@
 # youtubetrending
 
-GO project consists of 3 services/package -
+GO project consists of 3 service packages -
 
 * fetch - fetchService is the top layer which exposes the two core api's which are Paginated response, search Video
 * db - dbService is dao level service interacting with PGDB to perform CRUD operations
