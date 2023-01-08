@@ -6,6 +6,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/lazywitt/youtubetrending/db"
 	"github.com/lazywitt/youtubetrending/db/models"
+	"github.com/lazywitt/youtubetrending/types"
 	"google.golang.org/api/option"
 	"google.golang.org/api/youtube/v3"
 	"log"
@@ -94,7 +95,7 @@ func (s *YoutubeSeed) PersistVideoData(ctx context.Context, searchRes *youtube.S
 
 		scrapedVideos = append(scrapedVideos, &models.Videos{
 			Id:          uuid.New(),
-			YoutubeId:   it.Id.VideoId,
+			YoutubeId:   types.NewNullString(it.Id.VideoId),
 			Title:       it.Snippet.Title,
 			Description: it.Snippet.Description,
 		})
