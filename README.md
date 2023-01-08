@@ -9,8 +9,9 @@ GO project consists of 3 service packages -
 
 Multiple api key support is implemented by combining multiple api keys together like this - "apiKey1, apiKey2"
 
-Text search is performed using to_tsvector queries, optimised via GIN index
+Text search is performed using to_tsvector queries with support for jumbled search, optimised via GIN index.
 
+Example: "new hat" will match "hat in new york" and "old hat and new hat" both. match token are being created with a combination of both title and description.
 
  
 
