@@ -46,7 +46,16 @@ func initDb(ctx context.Context, config *db.Config) error {
 		}
 	}()
 	err := dbClient.AutoMigrate(&models.Videos{})
-	return err
+	if err != nil {
+		return err
+	}
+	// create indexes
+	createIndexRes := dbClient.Exec(`CREATE INDEX IF NOT EXISTS  text_search_idx ON Videos USING GIN (to_tsvector('english', title || ' ' || description)); CREATE INDEX IF NOT EXISTS id_created_at_idx ON Videos (id, created_at);
+	CREATE INDEX IF NOT EXISTS id_created_at_idx ON Videos (created_at, id);`)
+	if createIndexRes != nil {
+		return createIndexRes.Error
+	}
+	return nil
 }
 
 // getDbClient returns postgres client
