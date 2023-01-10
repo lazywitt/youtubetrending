@@ -1,3 +1,5 @@
+-- this MIGRATION file is just display for now, actual migration is ran via gorm autoMigrate in the server init
+
 CREATE TABLE "Videos" (
         id uuid PRIMARY KEY,
         youtube_id varchar UNIQUE,
@@ -9,7 +11,7 @@ CREATE TABLE "Videos" (
 );
 
 -- index will optimise paginated query
-CREATE INDEX id_created_at_idx ON Videos (id, created_at);
+CREATE INDEX IF NOT EXISTS id_created_at_idx ON Videos (id, created_at);
 
 -- index will optimise search query
-CREATE INDEX text_search_idx ON Videos USING GIN (to_tsvector('english', title || ' ' || description));
+CREATE INDEX IF NOT EXISTS text_search_idx ON Videos USING GIN (to_tsvector('english', title || ' ' || description));
