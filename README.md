@@ -1,9 +1,10 @@
 # youtubetrending
 
 # USAGE
-- replace ApiKey field in configs/scraper-dev.yml with your youtubeV3 api key/s.
-- run server/server.go which is the main for this project. Build's working directory shoud be $GOPATH\src\github.com\lazywitt\youtubetrending
-- completing the above steps will trigger the youtube scraper in background and will expose an http server at localhost:4000
+- Host PGDB server in your localhost:5432. This is a dependency requirement for the project.
+- Replace ApiKey field in configs/scraper-dev.yml with your youtubeV3 api key/s.
+- Run server/server.go which is the main for this project. Build's working directory shoud be $GOPATH\src\github.com\lazywitt\youtubetrending
+- Completing the above steps will trigger the youtube scraper in background and will expose an http server at localhost:4000
 
 # Project Structure
 GO project consists of 3 service packages -
