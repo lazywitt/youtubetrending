@@ -2,9 +2,32 @@
 
 GO project consists of 3 service packages -
 
-* fetch - fetchService is the top layer which exposes the two core api's which are Paginated response, search Video
-* db - dbService is dao level service interacting with PGDB to perform CRUD operations
-* scraper - this service interacts with the official youtube v3 api and stores the retreived data into the PGDB every 10 seconds
+
+* db 
+- dbService is dao level service interacting with PGDB to perform CRUD operations
+
+* scraper 
+- this service interacts with the official youtube v3 api and stores the retreived data into the PGDB every 10 seconds
+
+* fetch
+- fetchService is the top layer which exposes the two core api's which are Paginated response, search Video
+- this service also exposes an http server on top of service layer two expose 2 endpoints for providing REST interface.
+
+- http://localhost:4000/videos/search
+
+token field may also be left empty. The response json will provide with a new token. Expect empty token in case there are no pages left to serve.
+
+REQUEST - 
+{
+  "token": "asf0faz"
+}
+
+- http://localhost:4000/videos/getpage
+
+REQUEST - 
+{
+  "searchkey": "ronaldo shooting"
+}
 
 
 Multiple api key support is implemented by combining multiple api keys together like this - "apiKey1, apiKey2"
