@@ -35,6 +35,8 @@ REQUEST -
   "searchkey": "ronaldo shooting"
 }
 
+# sample via postman client
+
 ![image](https://user-images.githubusercontent.com/29565394/212305166-91a9f997-5ece-415f-b7ef-98570009ea7b.png)
 
 
