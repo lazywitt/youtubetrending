@@ -1,7 +1,12 @@
 # youtubetrending
 
-GO project consists of 3 service packages -
+# USAGE
+- replace ApiKey field in configs/scraper-dev.yml with your youtubeV3 api key/s.
+- run server/server.go which is the main for this project.
+- doing the above will trigger the youtube scraper in background and will expose an http server at localhost:4000
 
+# Project Structure
+GO project consists of 3 service packages -
 
 * db 
   - dbService is dao level service interacting with PGDB to perform CRUD operations
@@ -11,7 +16,7 @@ GO project consists of 3 service packages -
 
 * fetch
   - fetchService is the top layer which exposes the two core api's which are Paginated response, search Video
-  - this service also exposes an http server on top of service layer two expose 2 endpoints for providing REST interface.
+  - this service also exposes an http server on top of service layer to expose 2 endpoints for providing REST interface.
 
 - http://localhost:4000/videos/search
 
