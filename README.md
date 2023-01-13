@@ -18,7 +18,7 @@ GO project consists of 3 service packages -
   - fetchService is the top layer which exposes the two core api's which are Paginated response, search Video
   - this service also exposes an http server on top of service layer to expose 2 endpoints for providing REST interface.
 
-- http://localhost:4000/videos/search
+- http://localhost:4000/videos/getpage
 
 token field may also be left empty. The response json will provide with a new token. Expect empty token in case there are no pages left to serve.
 
@@ -27,7 +27,7 @@ REQUEST -
   "token": "asf0faz"
 }
 
-- http://localhost:4000/videos/getpage
+- http://localhost:4000/videos/search
 
 REQUEST - 
 {
