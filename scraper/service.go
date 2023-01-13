@@ -105,5 +105,6 @@ func (s *YoutubeSeed) PersistVideoData(ctx context.Context, searchRes *youtube.S
 	if err != nil {
 		return fmt.Errorf(fmt.Sprintf("error creating entry of scraper data: %v", err))
 	}
+	log.Println("successfully persisted the set of scraped entries")
 	return nil
 }

@@ -8,7 +8,8 @@ import (
 )
 
 type Fetch struct {
-	dbClient *db.Handler
+	dbClient  *db.Handler
+	fetchHttp *HttpService
 }
 
 // fetchService is the service layer which will call the db layer to fetch video data
@@ -57,7 +58,7 @@ func VideoModelToFetchVideoObject(ctx context.Context, modelVideos []models.Vide
 	for _, modelVid := range modelVideos {
 		videos = append(videos, Video{
 			Id:          modelVid.Id.String(),
-			YoutubeId:   modelVid.YoutubeId,
+			YoutubeId:   modelVid.YoutubeId.String,
 			Title:       modelVid.Title,
 			Description: modelVid.Description,
 		})
@@ -74,6 +75,6 @@ type Video struct {
 }
 
 type GetVideoResponse struct {
-	Videos    []Video
-	NextToken string
+	Videos    []Video `json:"videos"`
+	NextToken string  `json:"token"`
 }
